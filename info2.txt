@@ -1,0 +1,6 @@
+Todos los cursos de cesar:
+Curso Python, estructura basica, orientada a objetos
+Curso Lenguaje C, principios basicos
+Curso instalacion y mantenimiento de Sistema Operativo Windows
+Curso instalacion y mantenimiento de Sistema Operativo Linux
+Curso de eComerce, para aplicaciones online

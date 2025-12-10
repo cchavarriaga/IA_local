@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Banco de Preguntas Pruebas EM</title>
+        <meta name="viewport" content="="width=device-width, intial-scale=1.0">
+        <style>
+            body {
+                font-family: 'Helvetica Neue', sans-serif;
+                background: #ffff;
+                margin: 0;
+                padding: 0;
+            }
+
+            .chat-container {
+                max-width: 600px;
+                margin: 50px;
+                background: #ffff;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgb(0, 0, 0, 0.1);
+                display: flex;
+                flex-direction: column;
+                height: 80vh;
+                overflow: hidden;                
+            }
+            
+            .chat-header{
+                padding: 20px;
+                background: #4CAF50;
+                color: white;
+                text-align: center;
+                font-size: 1.2em;
+            }
+
+            .chat-message{
+                padding: 20px;
+                flex: 1;
+                overflow: auto;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .message{
+
+            }
+
+            .message.user{
+
+            }
+
+            .message.ia{
+
+            }
+
+            .cha-input{
+
+            }
+
+            .cha-input input[type="text"]{
+
+            }
+
+            .chat-input button {
+
+            }
+
+            .chat-input button:hover{
+
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="chat-container">
+            <div clas="chat-header">
+                Banco de Preguntas Pruebas EM
+            </div>
+            <div class="chat-message" id="chat-message">
+                {% for sender,message in conversation%}
+                <div class="message {% if sender == 'Tu' %} user{% else %}ia{% endif %}">
+                    <strong>{{ sender}} : </strong>{{ message | safe }}
+                </div>
+
+                {% endfor %}                
+            </div>
+        </div>
+
+
+
+        <form method="POST" class="cha-input">
+            <input type="text" name="user_input" placeholder="Escribe tu Pregunta" required">
+            <button type="submit">Enviar</button>
+        </form>
+<!--
+        <textarea rows="20" cols="100" readonly style="margin-top: 20px;">
+            {% for sender,message in conversation%}
+                {{ sender}} : {{ message }}
+            {% endfor %}        
+            -->
+        </textarea>
+    </body>
+</html>
