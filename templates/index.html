@@ -13,8 +13,8 @@
             }
 
             .chat-container {
-                max-width: 600px;
-                margin: 50px;
+                max-width: 1200px;
+                margin: 50px auto;
                 background: #ffff;
                 border-radius: 8px;
                 box-shadow: 0 0 10px rgb(0, 0, 0, 0.1);
@@ -35,9 +35,51 @@
             .chat-message{
                 padding: 20px;
                 flex: 1;
-                overflow: auto;
+                overflow-y: auto;
                 display: flex;
                 flex-direction: column;
+            }
+
+            .message{
+                margin-bottom: 15px;
+                padding: 10px 15px;
+                border-radius: 20px;
+                white-space: pre-line;
+                max-width: 80%;
+                word-wrap: break-word;
+
+            }
+
+            .message.user{
+
+            }
+
+            .message.ia{
+
+            }
+
+            .cha-input{
+                display: flex;
+                padding: 15px;
+                border-top: 1px solid #ccc;
+
+            }
+
+            .cha-input input[type="text"]{
+                flex: 1px;
+                padding: 10px;
+                border-radius: 20px;
+                border: 1px solid #ccc;
+                outline: none;
+
+            }
+
+            .chat-input button {
+
+            }
+
+            .chat-input button:hover{
+
             }
 
 
@@ -45,25 +87,25 @@
     </head>
     <body>
         <div class="chat-container">
-            <div clas="chat-header">
+            <div class="chat-header">
                 Banco de Preguntas Pruebas EM
             </div>
             <div class="chat-message" id="chat-message">
                 {% for sender,message in conversation%}
                 <div class="message {% if sender == 'Tu' %} user{% else %}ia{% endif %}">
-                    <strong>{{ sender}} : </strong>{{ message | safe }}
+                    <strong>{{ sender}} : </strong>{{ message | safe }} <!--Se agrega safe para que separe el texto-->
                 </div>
 
                 {% endfor %}                
             </div>
+
+            <form method="POST" class="cha-input">
+                <input type="text" name="user_input" placeholder="Escribe tu Pregunta" required">
+                <button type="submit">Enviar</button>
+            </form>
         </div>
 
-
-
-        <form method="POST" class="cha-input">
-            <input type="text" name="user_input" placeholder="Escribe tu Pregunta" required">
-            <button type="submit">Enviar</button>
-        </form>
+        
 <!--
         <textarea rows="20" cols="100" readonly style="margin-top: 20px;">
             {% for sender,message in conversation%}

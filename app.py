@@ -35,7 +35,7 @@ cargar_text_y_embedding()
 
 #_______________________________________________________
 @app.route("/", methods = ["GET","POST"])
-#consulta del usurio
+#consulta del usuario
 def index():
     global conversation
 
